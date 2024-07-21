@@ -1,0 +1,63 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block head_title %}
+        {% endblock head_title %} | AFIT Event Management System
+    </title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_head %}
+    {% endblock extra_head %}
+</head>
+<body>
+    <div class="row h-100" style="min-height: 100vh;"> 
+        <div class="form col-md-6 container p-3">
+            <div class="d-flex flex-column w-100 h-100 align-items-center justify-content-center">
+                <div class="text-center" >
+                    <h5 class="logo">Afit <span>Event</span></h5>
+                    <h2>Sign In to Afit Event</h2>
+                </div>
+                   <div class="container p-5">
+                        {% block body %}
+                        {% if messages %}
+                        <div class="alert alert-info" role="alert">
+                            <strong>{% trans "Messages:" %}</strong>
+                            <ul class="mb-0">
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    <div>
+                    {% block content %}
+                    {% endblock content %}
+                    {% endblock body %}
+                    {% block extra_body %}
+                    {% endblock extra_body %}
+            </div>
+        </div></div></div>
+        <div style="position: relative; padding: 0;" class="form-img-bg img-side col-5 d-flex justify-content-center align-items-center">
+            <div class="text-center text-light d-flex align-items-center justify-content-center form-img-bg" style="z-index: 999; background-color: rgba(0, 0, 0, 0.684);height: 100%;width: 100%;">
+                <div>
+                    <h1>Hello Friend</h1>
+                    <p>To Keep connected with us with your information</p>
+                    <a href="{{ signup_url }}" class="btn">{% trans "Sign Up" %}</a>
+                    {% url 'account_login' as login_url %}
+                    <a href="{{ login_url }}" class="btn btn-outline-primary">{% trans "Sign In" %}</a>
+                </div>
+            </div>
+            <div style="position: absolute;height: 100vh;top:0;left: 0;">
+                <div class="form-img-bg" style="height: 100vh;width: 43vw;background-image: url({% static 'img/1.jpeg' %});">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFIT Event Management System</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    <script src="https://kit.fontawesome.com/7559e3d310.js" crossorigin="anonymous"></script>
+    
+</head>
+<body class="container p-2 bg-light" style="max-width: 1550px;">
+    <nav class="container p-2" style="min-height: 100px;align-content: center;">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="logo"><h6 class="logo">Afit <span class="blue-span">Event</span></h6></div>
+            <div class="items">
+                <div class="logo" id="menubar"><i class="fa-solid fa-bars"></i></div>
+                <div class="justify-content-md-between align-items-md-center" style="gap: 30px;" >
+                    
+                    <div class="my-2 w-100 times"><a class="text-dark logo text-left" id="menutimes" href="#"><i class="fa-solid fa-xmark"></i></a></div>
+                    <div class="my-2"><a class="text-dark" href="/">Home</a></div>
+                    <div class="my-2"><a class="text-dark" href="#">About</a></div>
+                    <div class="my-2"><a class="text-dark" href="#">Services</a></div>
+                    {% if user.is_authenticated %}
+                    <div class="my-2"><a class="text-dark btn btn-outline-primary"  href="{% url 'event-create' %}">Create Event</a></div>
+                    <div class="my-2"><a class="btn btn-primary border-dark" href="/accounts/logout/">Log Out</a></div>
+                    {% else %}
+                    <div class="my-2"><a class="btn btn-primary" href="/accounts/login/">Log In</a></div>
+                    {% endif %}
+                </div>
+            </div>
+       </div>
+    </nav>
+    {% block main %}
+    {% endblock main %}
+    <footer class="pt-5 pb-2 px-5">
+        <div class="text-center text-light">
+            <h1 class="py-3" >Afit Event</h1>
+            <div class="py-3"><input placeholder="Enter Your Email..." type="text"><input type="submit" class="btn bg-light blue-span" value="Submit"></div>
+            <div class="py-3">
+                <div><a class="text-light" href="#">Home</a></div>
+                <div><a class="text-light" href="#">About</a></div>
+                <div><a class="text-light" href="#">Services</a></div>
+                <div><a class="text-light" href="#">Get in touch</a></div>
+                <div><a class="text-light" href="#">FAQs</a></div>
+            </div>
+        </div>
+        <hr style="border-color: #fff;">
+        <div class="second">
+            <div>
+                <div>English</div>
+                <div>French</div>
+                <div>Hendi</div>
+            </div>
+            <div>
+                <div><i class="fa-brands fa-instagram"></i></div>
+                <div><i class="fa-brands fa-linkedin"></i></div>
+                <div><i class="fa-brands fa-facebook"></i></div>
+            </div>
+            <div>
+                <p>Non Copyrighted &copy; 2023</p>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

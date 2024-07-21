@@ -1,0 +1,137 @@
+{% extends 'event/base.html' %}
+{% load static %}
+{% block main %}
+    <div class="container mt-2">
+        <section class="hero">
+            <img src="{% static 'img/2.png' %}" alt="">
+            <div class="d-flex flex-column justify-content-center align-items-center">
+                <div>
+                    <h2 class="text-light">Unlock the excitement! <br> Discover AFIT's <span class="blue-span">Dynamic Events</span></h2>
+                </div>
+                <div>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search Events, Categories, Locations...">
+                    <i class="fa fa-location-dot"></i>
+                    <select name="search_location" id="">
+                        <option value="Kaduna">Kaduna</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <section class="categories">
+            <h3>Explore Categories</h3>
+            <br>
+            <div>
+               {% for category in categories %}
+                <div>
+                    <div><img src="{{category.image.url}}" alt=""></div>
+                    <h5>
+                        {{category.name | title}}
+                    </h5>
+                </div>
+               {% endfor %}
+            </div>
+        </section>
+         <section class="Events">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3>Upcoming <span class="blue-span">Events</span></h3>
+                <div class="filter">
+                    <div>
+                        <select name="day" id="">
+                        <option value="Weekday">Weekday</option>
+                    </select>
+                    </div>
+
+                    <div>
+                        <select name="type" id="">
+                        <option value="Event Type">Event Type</option>
+                    </select>
+                    </div>
+
+                    <div>
+                        <select name="category" id="">
+                        <option value="Any Category">Any Category</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-5 grid">
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+            </div>
+            <div class="text-center"><a href="#" class="btn btn-primary">See More</a></div>
+         </section>
+         <section class="Start d-flex justify-content-center align-items-center flex-column" style="height: 300px;color: #fff;">
+            <h2>Event specially curated for you!</h2>
+            <p>Get event suggestions tailored to your interests! Don't let your favorite events slip away.</p>
+            <div><a href="#" class="btn bg-light blue-span">Get Started</a></div>
+         </section>
+         <section class="Events">
+            <div class="d-md-flex justify-content-between align-items-center">
+                <h3>Our <span class="blue-span">Blogs</span></h3>
+            </div>
+            <div class="mb-5 grid">
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <a class="text-dark" href="{% url 'event-detail' %}"><h5>Orientation Programme for New Student- AFIT</h5></a>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+                <div>
+                    <div style="background-size: cover;background-position: center;background-image: url({% static 'img/8.png' %});" alt=""></div>
+                    <h5>Orientation Programme for New Student- AFIT</h5>
+                    <p class="blue-span">Wednesday, March 11, 9:30PM</p>
+                    <p class="text-muted"><strong>Venue</strong>- Alfa Ibrahim Hall</p>
+                </div>
+            </div>
+         </section>
+         <section class="create">
+            <div class="text-light p-5">
+                <h4>Create your event with Afit Event</h4>
+                <p>Connect. Engage. Succeed. Innovate your campus experience, Transform campus event</p>
+                <a href="#" class="btn bg-light blue-span">Create Event <i class="fa-regular fa-calendar-plus"></i></a>
+            </div>
+            <img src="{% static 'img/image 3.png' %}" alt="">
+         </section>
+    </div>
+{% endblock main %}
