@@ -7,10 +7,6 @@ from django.core.validators import RegexValidator
 
 class User(AbstractBaseUser, PermissionsMixin):
     uid = models.UUIDField( default=uuid.uuid4, editable=False)
-    username = models.CharField(verbose_name='Username', unique=True ,max_length=150, blank=True,
-                                error_messages={
-                                    'unique': "This email has been used already",
-                                },)
     email = models.EmailField(verbose_name='email address', unique=True,
         error_messages={
             'unique': "This email has been used already",
@@ -27,4 +23,4 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     def __str__(self):
-        return str(self.username)
+        return str(self.email)

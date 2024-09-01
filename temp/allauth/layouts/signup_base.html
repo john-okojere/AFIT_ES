@@ -13,14 +13,22 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block extra_head %}
     {% endblock extra_head %}
+    <style>
+        hr{
+            display: none;
+        }
+        #id_password1_helptext, #id_password2_helptext{
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div class="row h-100" style="min-height: 100vh;"> 
+    <div class="row h-100" style="min-height: 100vh;flex-direction: row-reverse;"> 
         <div class="form col-md-6 container p-3">
             <div class="d-flex flex-column w-100 h-100 align-items-center justify-content-center">
                 <div class="text-center" >
-                    <h5 class="logo">Afit <span>Event</span></h5>
-                    <h2>Sign In to Afit Event</h2>
+                    <h6 class="logo my-5" style="font-size: 1.2rem;">Afit <span class="blue-span">Event</span></h6>
+                    <h2>Sign Up to Afit Event</h2>
                 </div>
                    <div class="container p-5">
                         {% block body %}
@@ -42,18 +50,17 @@
                     {% endblock extra_body %}
             </div>
         </div></div></div>
-        <div style="position: relative; padding: 0;" class="form-img-bg img-side col-5 d-flex justify-content-center align-items-center">
-            <div class="text-center text-light d-flex align-items-center justify-content-center form-img-bg" style="z-index: 999; background-color: rgba(0, 0, 0, 0.684);height: 100%;width: 100%;">
+        <div style="position: relative; padding: 0;" class="form-img-bg img-side col-5 d-flex justify-content-center align-items-center" style="border-top-right-radius: 50px;border-bottom-right-radius: 50px;border-top-left-radius: 0px;border-bottom-left-radius: 0px;">
+            <div class="text-center text-light d-flex align-items-center justify-content-center form-img-bg" style="z-index: 999; background-color: rgba(0, 0, 0, 0.684);height: 100%;width: 100%;border-top-right-radius: 50px;border-bottom-right-radius: 50px;border-top-left-radius: 0px !important;border-bottom-left-radius: 0px !important;">
                 <div>
-                    <h1>Hello Friend</h1>
-                    <p>To Keep connected with us with your information</p>
-                    <a href="{{ signup_url }}" class="btn">{% trans "Sign Up" %}</a>
+                    <h1>Welcome Back</h1>
+                    <p>To keep connected with us provide us with your information </p>
+                    <a href="{{ login_url }}" class="btn">{% trans "Sign In" %}</a>
                     {% url 'account_login' as login_url %}
-                    <a href="{{ login_url }}" class="btn btn-outline-primary">{% trans "Sign In" %}</a>
                 </div>
             </div>
-            <div style="position: absolute;height: 100vh;top:0;left: 0;">
-                <div class="form-img-bg" style="height: 100vh;width: 43vw;background-image: url({% static 'img/1.jpeg' %});">
+            <div style="position: absolute;height: 100vh;top:0;left: 0;border-top-right-radius: 50px;border-bottom-right-radius: 50px;border-top-left-radius: 0px !important;border-bottom-left-radius: 0px !important;">
+                <div class="form-img-bg" style="height: 100vh;width: 42.2vw;background-size: cover;background-image: url({% static 'img/4.png' %});border-top-right-radius: 50px;border-bottom-right-radius: 50px;border-top-left-radius: 0px !important;border-bottom-left-radius: 0px !important;">
 
                 </div>
             </div>

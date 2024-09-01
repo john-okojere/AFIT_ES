@@ -65,7 +65,7 @@
     <div class="my-5">
         <h3> <a href="/" class="text-dark mr-5"><i class="fa-solid fa-arrow-left"></i></a> <span style="margin-left:20px ;">Create a new Event</span></h3>
     </div>
-    <div class="progress-container my-5">
+    <div class="progress-container my-2">
         <div class="step completed">
             <div class="circle p-2  ">1</div>
         </div>
@@ -155,7 +155,7 @@
         </div>
         <div class="form-step my-4" id="step-3">
             <h2>What type of event are you running?</h2>
-            <div class="dsdsd">
+            <div class="dsdsd event-type-selection">
                 <div>
                     <svg width="86" height="85" viewBox="0 0 86 85" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="path-1-inside-1_217_369" fill="white">
@@ -165,6 +165,7 @@
                     </svg>
                     <h4>Ticketed Event</h4>
                     <p>My event requires tickets for entry</p>
+                    <input type="radio" checked name="event_type" value="ticketed" id="ticketed-event" onclick="showTicketFields()">
                 </div>
                 <div>
                     <svg width="91" height="90" viewBox="0 0 91 90" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -183,27 +184,76 @@
                     </svg>
                     <h4>Free Event</h4>
                     <p>I am running a free event</p>
+                    <input type="radio" name="event_type" value="free" id="free-event" onclick="hideTicketFields()">
                 </div>
             </div>
 
-            <div class="mt-5">
+            <div class="mt-5 ticket-fields">
                 <h2>What tickets are you selling?</h2>
-                <div class="asdf">
-                    <div>
-                        {{ form.ticket_name.label }}<br>
-                        {{ form.ticket_name }}
+                <br>
+                <div id="ticket-container">
+                    <div class="ticket-entry d-flex my-3" style="gap: 10px;" >
+                        <div>
+                            <label for="ticket_name_1">Ticket Name:</label><br>
+                            <input type="text" class="form-control" name="ticket_name" id="ticket_name_1" class="ticket-name">
+                        </div>
+                        <div>
+                            <label for="ticket_price_1">Ticket Price:</label><br>
+                            <input type="number" class="form-control" name="ticket_price" id="ticket_price_1" class="ticket-price" step="0.01">
+                        </div>
+                        <button type="button" class="btn text-danger" onclick="removeTicketEntry(this)">Remove</button>
                     </div>
-                    <div>
-                        {{ form.ticket_price.label }}<br>
-                        {{ form.ticket_price }}
-                    </div>
-                </div>    
+                </div>
+                <br>
+                <button type="button" class="btn btn-outline-success" onclick="addTicketEntry()">Add Another Ticket Type</button>
             </div>
             <div class="text-right " style="text-align: right;">
                 <button type="button" class="btn btn-primary text-center px-5" onclick="prevStep()">Previous</button>
                 <button type="button" class="btn btn-primary text-center px-5" onclick="nextStep()">Next</button>
             </div>
         </div>
+        <script>
+            function showTicketFields() {
+                document.querySelector('.ticket-fields').style.display = 'block';
+                document.querySelectorAll('.ticket-price').forEach(input => input.disabled = false);
+            }
+            
+            function hideTicketFields() {
+                document.querySelector('.ticket-fields').style.display = 'none';
+                document.querySelectorAll('.ticket-price').forEach(input => {
+                    input.value = '0';
+                    input.disabled = true;
+                });
+            }
+            
+            function addTicketEntry() {
+                const container = document.getElementById('ticket-container');
+                const index = container.getElementsByClassName('ticket-entry').length + 1;
+                
+                const newEntry = document.createElement('div');
+                newEntry.classList.add('ticket-entry');
+                newEntry.classList.add('d-flex');
+                newEntry.classList.add('my-3');
+                newEntry.style.gap = '10px';
+                newEntry.innerHTML = `
+                    <div>
+                            <label for="ticket_name_1">Ticket Name:</label><br>
+                            <input type="text" class="form-control" name="ticket_name" id="ticket_name_1" class="ticket-name">
+                        </div>
+                        <div>
+                            <label for="ticket_price_1">Ticket Price:</label><br>
+                            <input type="number" class="form-control" name="ticket_price" id="ticket_price_1" class="ticket-price" step="0.01">
+                        </div>
+                        <button type="button" class="btn text-danger" onclick="removeTicketEntry(this)">Remove</button>
+                    `;
+                
+                container.appendChild(newEntry);
+            }
+            
+            function removeTicketEntry(button) {
+                button.parentElement.remove();
+            }
+            </script>
         <div class="form-step" id="step-4">
             <p class="my-5">Almost Done! Please review your details.</p>
             <style>

@@ -1,7 +1,9 @@
 a{
     text-decoration: none;
 }
-
+p{
+    margin: 0 !important;
+}
 .logo{
     font-weight: bolder;
     margin-bottom: 0;
@@ -67,10 +69,11 @@ section.hero img{
     position: absolute;
     top: 0;
     left: 0;
-    height: 610px;
+    height: 720px;
     z-index: 1;
 }
 section.hero > div{
+    padding: 1rem;
     z-index: 999;
     width: 100%;
     height: 100%;
@@ -107,7 +110,7 @@ section.hero > div > div:nth-child(2) > *:focus {
     outline: none;
 }
 section{
-    margin:2rem;
+    margin:7rem auto !important;
 
 }
 section.categories > div{
@@ -116,9 +119,9 @@ section.categories > div{
 }
 section.categories > div > div> div{
     position: relative;
-    height: 150px;
-    width: 150px;
-    border-radius: 50px;
+    height: 120px;
+    width: 120px;
+    border-radius: 60px;
     text-align: center;
 }
 section.categories > div > div> div img{
@@ -187,13 +190,17 @@ section.Start{
     text-align: center;
     background-image: url(../img/Frame\ 44.png);
 }
-section.create{
+.create-s{
+    background-image: url(../img/Frame\ 45.png);
     margin-top: 10rem;
+    min-height:200px;
+    height:200px;
+}
+.create{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    background-image: url(../img/Frame\ 45.png);
-    min-height:200px;
+    align-items: end;
+    height: 100%;
 }
 section.create img{
     place-self: flex-end;
@@ -205,7 +212,7 @@ footer > div >div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 5px;
 }
 footer .second{
     display: flex;
@@ -261,21 +268,35 @@ footer input{
         grid-gap: 5%;
     }
     section.categories > div{
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 1rem;
         align-items: center;
     }
     .grid{
         display: block !important;
     }
-    section.create{
+    .create{
         flex-direction: column;
     }
-    section.create img{
+    .create-s{
+        height: 100%;
+    }
+
+    section.categories > div > div {
+        max-width: 150px;
+    }
+    .create img{
         width: 100%;
     }
     footer .second{
         flex-direction: column !important;
         gap: 1rem;
+    }
+    section.hero{
+        height: 300px;
+    }
+    section.hero > div > div:nth-child(2){
+        width: 100%;
     }
 }

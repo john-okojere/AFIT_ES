@@ -1,4 +1,4 @@
-{% extends "account/base_entrance.html" %}
+{% extends "account/login_base_entrance.html" %}
 {% load i18n %}
 {% load allauth account %}
 {% block head_title %}
@@ -13,7 +13,6 @@
             </a>
         {% endsetvar %}
         {% element p %}
-            {% blocktranslate %}<div class="text-center">If you have not created an account yet, then please {{ link }}sign up{{ end_link }} first.</div>{% endblocktranslate %}
         {% endelement %}
         {% url 'account_login' as login_url %}
         {% element form form=form method="post" action=login_url tags="entrance,login" %}
