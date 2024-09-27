@@ -7,4 +7,3 @@ django
 gunicorn 
 uvicorn 
 django-crispy-forms 
-crispy-bootstrap5
