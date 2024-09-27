@@ -1,0 +1,155 @@
+{% extends 'event/base.html' %}
+{% load custom_filters %}
+{% load static %}
+{% block main %}
+
+<style>
+    .card {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+    }
+
+    .input-group {
+        align-items: center;
+    }
+
+    .pagination {
+        margin: 20px 0;
+    }
+
+    .step-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pagination-button {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 0 5px;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        font-weight: bold;
+    }
+
+    .pagination-button:hover {
+        background-color: #0056b3;
+    }
+
+    .current-page {
+        margin: 0 10px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>
+
+<section class="container hero" style="margin: auto !important; padding: 0;min-height: 100px;height: 300px !important;">
+    <img src="{% static 'img/1.png' %}" alt="" style="height: 800px;">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div>
+            <h2 class="text-light">Unlock the excitement! <br> Discover AFIT's <span class="blue-span">Dynamic Events</span></h2>
+        </div>
+    </div>
+</section>
+
+<section class="container Events">
+    <div class="card my-4 p-3">
+        <div class="input-group">
+            <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" class="form-control" id="searchInput" placeholder="Search Events, Categories, Locations...">
+            <span class="input-group-text"><i class="fa fa-location-dot"></i></span>
+            <select class="form-select" id="searchLocation">
+                <option value="">All Locations</option>
+                {% for location in locations %}
+                    <option value="{{ location }}">{{ location }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="d-md-flex justify-content-between align-items-center">
+        <h3>Upcoming <span class="blue-span">Events</span></h3>
+    </div>
+
+    <div>
+        <div id="event-list" class="container mb-5 grid">
+            {% for event in events %}
+                <div class="event-item my-3">
+                    <div style="background-size: cover; background-position: center; background-image: url({{ event.image.url }});" class="event-image"></div>
+                    <a class="text-dark" href="{% url 'event-detail' event.uid %}">
+                        <h3>{{ event.title | truncatechars:100 }}</h3>
+                    </a>
+                    <p class="blue-span py-2">{{ event.created }}</p>
+                    <p class="text-muted"><strong>Venue</strong>: {{ event.location }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination justify-content-center">
+        <span class="step-links">
+            {% if events.has_previous %}
+                <a class="pagination-button" href="?page=1">&laquo; First</a>
+                <a class="pagination-button" href="?page={{ events.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            <span class="current-page">
+                Page {{ events.number }} of {{ events.paginator.num_pages }}.
+            </span>
+
+            {% if events.has_next %}
+                <a class="pagination-button" href="?page={{ events.next_page_number }}">Next</a>
+                <a class="pagination-button" href="?page={{ events.paginator.num_pages }}">Last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+ $(document).ready(function() {
+    // Trigger search as the input changes
+    $('#searchInput, #searchLocation').on('input change', function() {
+        const searchQuery = $('#searchInput').val();
+        const searchLocation = $('#searchLocation').val();
+        
+        $.ajax({
+            url: "{% url 'events' %}",  // Replace with your event list URL
+            data: {
+                'search_query': searchQuery,
+                'search_location': searchLocation,
+            },
+            success: function(data) {
+                const events = data.events;
+                let eventListHtml = '';
+    
+                if (events.length > 0) {
+                    events.forEach(event => {
+                        eventListHtml += `
+                            <div class="event-item my-3">
+                                <div style="background-size: cover; background-position: center; background-image: url(${event.image_url});" class="event-image"></div>
+                                <a class="text-dark" href="/events/${event.uid}/">
+                                    <h3>${event.title}</h3>
+                                </a>
+                                <p class="blue-span py-2">${event.created}</p>
+                                <p class="text-muted"><strong>Venue</strong>: ${event.location}</p>
+                            </div>
+                        `;
+                    });
+                } else {
+                    eventListHtml = '<p>No events found.</p>';
+                }
+
+                $('#event-list').html(eventListHtml);
+            }
+        });
+    });
+});
+
+</script>
+{% endblock main %}

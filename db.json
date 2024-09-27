@@ -1,0 +1,402 @@
+[
+    {
+        "model": "event.event",
+        "pk": 21,
+        "fields": {
+            "uid": "dabe26b3-5de3-4816-859b-20f7a557a4bc",
+            "title": "Tech Workshop",
+            "category": 1,
+            "type": "Single Event",
+            "start_date": "2024-11-01",
+            "start_time": "10:00:00",
+            "end_time": "12:00:00",
+            "location": "Tech Center",
+            "description": "Learn about the latest tech trends in this hands-on workshop.",
+            "image": "Event/2024/09/25/1.png",
+            "ticket_name": "Workshop Ticket",
+            "ticket_price": "15.00",
+            "created": "2024-09-30T09:00:00Z",
+            "updated": "2024-09-30T09:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 22,
+        "fields": {
+            "uid": "93a7c50d-9e4a-42d4-8322-f4ebfd227b79",
+            "title": "Local Art Exhibition",
+            "category": 2,
+            "type": "Single Event",
+            "start_date": "2024-11-02",
+            "start_time": "11:00:00",
+            "end_time": "17:00:00",
+            "location": "Art Gallery",
+            "description": "Explore unique artworks from local artists at our annual exhibition.",
+            "image": "Event/2024/09/25/2.png",
+            "ticket_name": "Exhibition Entry",
+            "ticket_price": "5.00",
+            "created": "2024-09-30T10:00:00Z",
+            "updated": "2024-09-30T10:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 23,
+        "fields": {
+            "uid": "56a1db63-3d79-43ed-83b7-69b06de50f93",
+            "title": "Charity Run",
+            "category": 3,
+            "type": "Single Event",
+            "start_date": "2024-11-10",
+            "start_time": "07:00:00",
+            "end_time": "10:00:00",
+            "location": "City Stadium",
+            "description": "Participate in our charity run to support local charities. All levels welcome!",
+            "image": "Event/2024/09/25/3.png",
+            "ticket_name": "Run Entry",
+            "ticket_price": "20.00",
+            "created": "2024-09-30T11:00:00Z",
+            "updated": "2024-09-30T11:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 24,
+        "fields": {
+            "uid": "e8e3ab8f-7f90-42b6-bf57-4f5175ffebc5",
+            "title": "Cooking Class",
+            "category": 4,
+            "type": "Single Event",
+            "start_date": "2024-11-12",
+            "start_time": "18:00:00",
+            "end_time": "20:00:00",
+            "location": "Culinary School",
+            "description": "Join us for a fun cooking class where you'll learn to make delicious dishes!",
+            "image": "Event/2024/09/25/4.png",
+            "ticket_name": "Class Fee",
+            "ticket_price": "25.00",
+            "created": "2024-09-30T12:00:00Z",
+            "updated": "2024-09-30T12:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 25,
+        "fields": {
+            "uid": "62b4b77d-4d54-4a77-a53a-4e3b3e079d65",
+            "title": "Photography Contest",
+            "category": 2,
+            "type": "Single Event",
+            "start_date": "2024-11-15",
+            "start_time": "09:00:00",
+            "end_time": "17:00:00",
+            "location": "Community Center",
+            "description": "Showcase your photography skills and win exciting prizes!",
+            "image": "Event/2024/09/25/5.png",
+            "ticket_name": "Contest Entry",
+            "ticket_price": "10.00",
+            "created": "2024-09-30T13:00:00Z",
+            "updated": "2024-09-30T13:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 26,
+        "fields": {
+            "uid": "48e15a39-8c90-4c4c-bb95-52e66c6fcdbf",
+            "title": "Music Festival",
+            "category": 5,
+            "type": "Single Event",
+            "start_date": "2024-11-20",
+            "start_time": "14:00:00",
+            "end_time": "22:00:00",
+            "location": "City Square",
+            "description": "Enjoy a day of live music from local bands and food from top vendors!",
+            "image": "Event/2024/09/25/6.png",
+            "ticket_name": "Festival Entry",
+            "ticket_price": "30.00",
+            "created": "2024-09-30T14:00:00Z",
+            "updated": "2024-09-30T14:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 27,
+        "fields": {
+            "uid": "236d0a8f-3bc9-467c-bafe-207f4c04d01e",
+            "title": "Tech Innovations Showcase",
+            "category": 1,
+            "type": "Single Event",
+            "start_date": "2024-11-25",
+            "start_time": "10:00:00",
+            "end_time": "16:00:00",
+            "location": "Innovation Hub",
+            "description": "Discover the latest innovations in technology from local startups.",
+            "image": "Event/2024/09/25/7.png",
+            "ticket_name": "Entry Fee",
+            "ticket_price": "15.00",
+            "created": "2024-09-30T15:00:00Z",
+            "updated": "2024-09-30T15:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 28,
+        "fields": {
+            "uid": "d1f1bb60-7fd4-4ed8-a20f-d8d1ab6c4f62",
+            "title": "Children’s Story Time",
+            "category": 3,
+            "type": "Single Event",
+            "start_date": "2024-12-01",
+            "start_time": "11:00:00",
+            "end_time": "12:00:00",
+            "location": "Public Library",
+            "description": "Bring your kids for a delightful story time session with fun activities!",
+            "image": "Event/2024/09/25/8.png",
+            "ticket_name": "Entry Fee",
+            "ticket_price": "0.00",
+            "created": "2024-09-30T16:00:00Z",
+            "updated": "2024-09-30T16:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 29,
+        "fields": {
+            "uid": "6d5a4370-d6e7-4eb0-a4f2-9a644bc0eb8e",
+            "title": "Cooking Competition",
+            "category": 4,
+            "type": "Single Event",
+            "start_date": "2024-12-05",
+            "start_time": "18:00:00",
+            "end_time": "21:00:00",
+            "location": "Culinary School",
+            "description": "Compete against others in a fun cooking challenge!",
+            "image": "Event/2024/09/25/9.png",
+            "ticket_name": "Competition Fee",
+            "ticket_price": "25.00",
+            "created": "2024-09-30T17:00:00Z",
+            "updated": "2024-09-30T17:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 30,
+        "fields": {
+            "uid": "30a732e1-35d8-44a5-9705-4d1e05e8a6af",
+            "title": "Annual Book Fair",
+            "category": 2,
+            "type": "Single Event",
+            "start_date": "2024-12-10",
+            "start_time": "10:00:00",
+            "end_time": "18:00:00",
+            "location": "City Convention Center",
+            "description": "Discover great books and meet your favorite authors at our book fair!",
+            "image": "Event/2024/09/25/10.png",
+            "ticket_name": "Entry Fee",
+            "ticket_price": "5.00",
+            "created": "2024-09-30T18:00:00Z",
+            "updated": "2024-09-30T18:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 31,
+        "fields": {
+            "uid": "5415861d-cb5f-469f-b41c-b1ec0a0379c4",
+            "title": "Film Screening",
+            "category": 5,
+            "type": "Single Event",
+            "start_date": "2024-12-15",
+            "start_time": "19:00:00",
+            "end_time": "21:00:00",
+            "location": "Community Cinema",
+            "description": "Join us for a screening of independent films followed by a Q&A session.",
+            "image": "Event/2024/09/25/11.png",
+            "ticket_name": "Screening Entry",
+            "ticket_price": "10.00",
+            "created": "2024-09-30T19:00:00Z",
+            "updated": "2024-09-30T19:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 32,
+        "fields": {
+            "uid": "ab9c88e4-19e3-40cc-bb86-e50d7cd95a35",
+            "title": "Fitness Bootcamp",
+            "category": 3,
+            "type": "Single Event",
+            "start_date": "2024-12-20",
+            "start_time": "06:00:00",
+            "end_time": "08:00:00",
+            "location": "Local Park",
+            "description": "Kickstart your fitness journey with our intensive bootcamp!",
+            "image": "Event/2024/09/25/12.png",
+            "ticket_name": "Bootcamp Fee",
+            "ticket_price": "15.00",
+            "created": "2024-09-30T20:00:00Z",
+            "updated": "2024-09-30T20:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 33,
+        "fields": {
+            "uid": "bc8f08cf-3df0-41d5-a10f-19f4ab7e1a09",
+            "title": "Holiday Market",
+            "category": 2,
+            "type": "Single Event",
+            "start_date": "2024-12-25",
+            "start_time": "10:00:00",
+            "end_time": "17:00:00",
+            "location": "City Plaza",
+            "description": "Shop for unique gifts and enjoy festive activities at our holiday market!",
+            "image": "Event/2024/09/25/13.png",
+            "ticket_name": "Market Entry",
+            "ticket_price": "0.00",
+            "created": "2024-09-30T21:00:00Z",
+            "updated": "2024-09-30T21:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 34,
+        "fields": {
+            "uid": "93be7ee4-6c49-4e15-9a2d-fd6b67d28ed8",
+            "title": "New Year Celebration",
+            "category": 5,
+            "type": "Single Event",
+            "start_date": "2025-01-01",
+            "start_time": "20:00:00",
+            "end_time": "01:00:00",
+            "location": "City Hall",
+            "description": "Join us for a night of celebration as we welcome the New Year!",
+            "image": "Event/2024/09/25/14.png",
+            "ticket_name": "Celebration Entry",
+            "ticket_price": "50.00",
+            "created": "2024-09-30T22:00:00Z",
+            "updated": "2024-09-30T22:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 35,
+        "fields": {
+            "uid": "4c72cf17-7b6b-44bb-b317-e3eb21af7670",
+            "title": "Community Cleanup Day",
+            "category": 3,
+            "type": "Single Event",
+            "start_date": "2025-01-05",
+            "start_time": "09:00:00",
+            "end_time": "12:00:00",
+            "location": "City Park",
+            "description": "Join us as we work together to clean up our community!",
+            "image": "Event/2024/09/25/15.png",
+            "ticket_name": "Cleanup Participation",
+            "ticket_price": "0.00",
+            "created": "2024-09-30T23:00:00Z",
+            "updated": "2024-09-30T23:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 36,
+        "fields": {
+            "uid": "b1a7b623-0c70-451c-bbe1-3c38e48d8ed1",
+            "title": "Outdoor Movie Night",
+            "category": 5,
+            "type": "Single Event",
+            "start_date": "2025-01-10",
+            "start_time": "19:00:00",
+            "end_time": "22:00:00",
+            "location": "Local Park",
+            "description": "Enjoy a movie under the stars with family and friends!",
+            "image": "Event/2024/09/25/16.png",
+            "ticket_name": "Movie Night Entry",
+            "ticket_price": "5.00",
+            "created": "2024-09-30T00:00:00Z",
+            "updated": "2024-09-30T00:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 37,
+        "fields": {
+            "uid": "a33c8b68-51e4-4f44-93c0-053ab87ef8f4",
+            "title": "Winter Festival",
+            "category": 4,
+            "type": "Single Event",
+            "start_date": "2025-01-15",
+            "start_time": "12:00:00",
+            "end_time": "20:00:00",
+            "location": "Downtown",
+            "description": "Celebrate the winter season with festive activities and food!",
+            "image": "Event/2024/09/25/17.png",
+            "ticket_name": "Festival Entry",
+            "ticket_price": "10.00",
+            "created": "2024-09-30T01:00:00Z",
+            "updated": "2024-09-30T01:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 38,
+        "fields": {
+            "uid": "4b4c9230-91a0-44f0-9c61-8b94d5866a2e",
+            "title": "Spring Fair",
+            "category": 2,
+            "type": "Single Event",
+            "start_date": "2025-01-20",
+            "start_time": "10:00:00",
+            "end_time": "18:00:00",
+            "location": "Community Park",
+            "description": "Join us for games, food, and fun at our spring fair!",
+            "image": "Event/2024/09/25/18.png",
+            "ticket_name": "Fair Entry",
+            "ticket_price": "5.00",
+            "created": "2024-09-30T02:00:00Z",
+            "updated": "2024-09-30T02:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 39,
+        "fields": {
+            "uid": "dd2f962b-df59-4b1f-a3a8-1901aa8b0df1",
+            "title": "Summer Bash",
+            "category": 5,
+            "type": "Single Event",
+            "start_date": "2025-01-25",
+            "start_time": "14:00:00",
+            "end_time": "22:00:00",
+            "location": "City Beach",
+            "description": "Celebrate summer with music, food, and fun activities!",
+            "image": "Event/2024/09/25/19.png",
+            "ticket_name": "Bash Entry",
+            "ticket_price": "20.00",
+            "created": "2024-09-30T03:00:00Z",
+            "updated": "2024-09-30T03:00:00Z"
+        }
+    },
+    {
+        "model": "event.event",
+        "pk": 40,
+        "fields": {
+            "uid": "6be028e3-5472-4045-b370-730cb5d0b6f1",
+            "title": "Art Workshop",
+            "category": 3,
+            "type": "Single Event",
+            "start_date": "2025-02-01",
+            "start_time": "10:00:00",
+            "end_time": "16:00:00",
+            "location": "Art Studio",
+            "description": "Join our workshop to explore your creative side and learn new techniques!",
+            "image": "Event/2024/09/25/20.png",
+            "ticket_name": "Workshop Fee",
+            "ticket_price": "25.00",
+            "created": "2024-09-30T04:00:00Z",
+            "updated": "2024-09-30T04:00:00Z"
+        }
+    }
+]

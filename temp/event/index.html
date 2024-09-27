@@ -2,20 +2,36 @@
 {% load custom_filters %}
 {% load static %}
 {% block main %}
+<style>
+    .input-group-text{
+        padding: 0;
+        background: transparent;
+        border: none;
+    }
+    form *{
+        border: none !important;
+    }
+</style>
         <section class="container hero" style="margin: auto !important; padding: 0;">
             <img src="{% static 'img/2.png' %}" alt="">
             <div class="d-flex flex-column justify-content-center align-items-center">
                 <div>
                     <h2 class="text-light">Unlock the excitement! <br> Discover AFIT's <span class="blue-span">Dynamic Events</span></h2>
                 </div>
-                <div>
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search Events, Categories, Locations...">
-                    <i class="fa fa-location-dot"></i>
-                    <select name="search_location" id="">
-                        <option value="Kaduna">Kaduna</option>
-                    </select>
-                </div>
+                <form action="{% url 'events' %}" method="GET" style="background-color: #fff;width: fit-content;padding: 5px 20px;border-radius: 8px;">
+                    <div style="justify-content: center;padding: 5px;display: grid;grid-template-columns: 5% 50% 5% 30% 10% !important;">
+                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <input type="text" name="search_query" class="form-control" id="searchInput" placeholder="Search Events, Categories, Locations...">
+                        <span class="input-group-text"><i class="fa fa-location-dot"></i></span>
+                        <select name="search_location" class="form-select" id="searchLocation">
+                            <option value="">All Locations</option>
+                            {% for location in locations %}
+                                <option value="{{ location }}">{{ location }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" class="btn btn-primary" value="Search" style="background-color:#1c6dcc;border-top-left-radius:0 ;border-bottom-left-radius:0 ;">
+                    </div>
+                </form>                
             </div>
         </section>
         <section class="container categories" style="margin: 70px auto;">
@@ -59,18 +75,18 @@
                 {% for event in events|slice_list:"0:6" %}
                 <div>
                     <div style="background-size: cover;background-position: center;background-image: url({{event.image.url}});" alt=""></div>
-                    <a class="text-dark" href="{% url 'event-detail' event.uid %}"><h5>{{event.title | truncatechars:100}}</h5></a>
-                    <p class="blue-span">{{event.created }}</p>
-                    <p class="text-muted"><strong>Venue</strong>- {{event.location}}</p>
+                    <a class="text-dark" href="{% url 'event-detail' event.uid %}"><h3>{{event.title | truncatechars:100}}</h3></a>
+                    <p class="blue-span py-2">{{event.created }}</p>
+                    <p class="text-muted"><strong>Venue</strong>: {{event.location}}</p>
                 </div>
                 {% endfor %}
                 
             </div>
-            <div class="text-center"><a href="#" class="btn btn-primary">See More</a></div>
+            <div class="text-center"><a href="{% url 'events' %}" class="btn btn-primary">See More</a></div>
          </section>
          <section class="mx-0 Start d-flex justify-content-center align-items-center flex-column" style="height: 300px;color: #fff;">
             <h2>Event specially curated for you!</h2>
-            <p>Get event suggestions tailored to your interests! Don't let your favorite events slip away.</p>
+            <p class="my-2">Get event suggestions tailored to your interests! Don't let your favorite events slip away.</p>
             <div><a href="#" class="btn bg-light blue-span">Get Started</a></div>
          </section>
          <section class=" container Events">
@@ -81,9 +97,9 @@
                 {% for event in events|slice_list:"1:4" %}
                 <div>
                     <div style="background-size: cover;background-position: center;background-image: url({{event.image.url}});" alt=""></div>
-                    <a class="text-dark" href="{% url 'event-detail' event.uid %}"><h5>{{event.title | truncatechars:100}}</h5></a>
-                    <p class="blue-span">{{event.created }}</p>
-                    <p class="text-muted"><strong>Venue</strong>- {{event.location}}</p>
+                    <a class="text-dark" href="{% url 'event-detail' event.uid %}"><h3>{{event.title | truncatechars:100}}</h3></a>
+                    <p class="blue-span py-2">{{event.created }}</p>
+                    <p class="text-muted"><strong>Venue</strong>: {{event.location}}</p>
                 </div>
                 {% endfor %}
             </div>
@@ -91,9 +107,9 @@
          <section class="mx-0 create-s">
             <div class="create container">
                 <div class="text-light p-4" style="display: flex;flex-direction: column; gap: 10px;">
-                    <h4>Create your event with Afit Event</h4>
+                    <h4>Create your event with Afit Event</h4>                                                                                                                                                                                                                                                                                                                                                                              
                     <p>Connect. Engage. Succeed. Innovate your campus experience, Transform campus event</p>
-                    <a href="#" class="btn bg-light blue-span">Create Event <i class="fa-regular fa-calendar-plus"></i></a>
+                    <a href="{% url 'event-create' %}" class="btn bg-light blue-span">Create Event <i class="fa-regular fa-calendar-plus"></i></a>
                 </div>
                 <img src="{% static 'img/image 3.png' %}" alt="">
             </div>

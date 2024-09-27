@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/event.css' %}">
     <script src="https://kit.fontawesome.com/7559e3d310.js" crossorigin="anonymous"></script>
-    
 </head>
 <body class="container p-2 bg-light" style="max-width: 1550px;">
     <nav class="container p-3" style="min-height: 100px;align-content: center;">
@@ -16,12 +15,11 @@
             <div class="logo"><h6 class="logo">Afit <span class="blue-span">Event</span></h6></div>
             <div class="items">
                 <div class="logo" id="menubar"><i class="fa-solid fa-bars"></i></div>
-                <div class="justify-content-md-between align-items-md-center" style="gap: 30px;" >
-                    
+                <div class="justify-content-md-between align-items-md-center" style="gap: 30px;">
                     <div class="my-2 w-100 times"><a class="text-dark logo text-left" id="menutimes" href="#"><i class="fa-solid fa-xmark"></i></a></div>
-                
                     {% if user.is_authenticated %}
                     <div class="my-2"><a class="text-dark" href="/">Home</a></div>
+                    <div class="my-2"><a class="text-dark" href="{% url "events" %}">Events</a></div>
                     <div class="my-2"><a class="text-dark" href="#">Favourites</a></div>
                     <div class="my-2"><a class="text-dark" href="#">Calendar</a></div>
                     <div class="my-2"><a class="text-dark btn btn-outline-primary"  href="{% url 'event-create' %}">Create Event</a></div>
@@ -37,13 +35,36 @@
             </div>
        </div>
     </nav>
+
+    <!-- Main content -->
     {% block main %}
     {% endblock main %}
+
+    <!-- Modal HTML structure -->
+    <div class="modal fade" id="productionModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">Service Under Development</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This service is still in production. Please check back later!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div style="margin-top: 100px;"></div>
+
     <footer class="pt-5 pb-2 px-5">
         <div class="text-center text-light">
             <h1 class="py-3" >Afit Event</h1>
-            <div class="py-3"><input placeholder="Enter Your Email..." type="text"><input type="submit" class="btn bg-light blue-span" value="Subscribe"></div>
+            <div class="py-3" style="gap:0px"><input placeholder="Enter Your Email..." style="border-radius:0; width:500px" type="text">
+                <input type="submit" class="btn bg-light blue-span" style="border-radius:0;" value="Subscribe"></div>
             <div class="py-3">
                 <div><a class="text-light" href="#">Home</a></div>
                 <div><a class="text-light" href="#">About</a></div>
@@ -69,6 +90,23 @@
             </div>
         </div>
     </footer>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
+
+    <!-- Script to show modal for # links -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all anchor tags that have href="#"
+            const links = document.querySelectorAll('a[href="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();  // Prevent the default action
+                    const modal = new bootstrap.Modal(document.getElementById('productionModal'));
+                    modal.show();  // Show the modal
+                });
+            });
+        });
+    </script>
 </body>
 </html>
