@@ -8,3 +8,4 @@ gunicorn
 uvicorn 
 django-crispy-forms 
 dj_database_url
+requests
