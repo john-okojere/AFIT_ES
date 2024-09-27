@@ -18,20 +18,73 @@
                 <div>
                     <h2 class="text-light">Unlock the excitement! <br> Discover AFIT's <span class="blue-span">Dynamic Events</span></h2>
                 </div>
-                <form action="{% url 'events' %}" method="GET" style="background-color: #fff;width: fit-content;padding: 5px 20px;border-radius: 8px;">
-                    <div style="justify-content: center;padding: 5px;display: grid;grid-template-columns: 5% 50% 5% 30% 10% !important;">
-                        <span class="input-group-text"><i class="fa-solid fa-magnifying-glass"></i></span>
-                        <input type="text" name="search_query" class="form-control" id="searchInput" placeholder="Search Events, Categories, Locations...">
-                        <span class="input-group-text"><i class="fa fa-location-dot"></i></span>
-                        <select name="search_location" class="form-select" id="searchLocation">
-                            <option value="">All Locations</option>
-                            {% for location in locations %}
-                                <option value="{{ location }}">{{ location }}</option>
-                            {% endfor %}
-                        </select>
-                        <input type="submit" class="btn btn-primary" value="Search" style="background-color:#1c6dcc;border-top-left-radius:0 ;border-bottom-left-radius:0 ;">
-                    </div>
-                </form>                
+                <style>
+                    /* Container for the search form */
+                    .search-form {
+                        background-color: #fff;
+                        padding: 5px 20px;
+                        border-radius: 8px;
+                        display: grid;
+                        grid-template-columns: auto 1fr auto 1fr auto;
+                        gap: 10px;
+                        align-items: center;
+                        width: 100%;
+                        max-width: 900px;
+                    }
+                
+                    /* Adjust grid for mobile screens */
+                    @media (max-width: 600px) {
+                        .search-form {
+                            grid-template-columns: 1fr;
+                        }
+                        .search-form i, 
+                        .search-form input, 
+                        .search-form select, 
+                        .search-form button {
+                            width: 100%;
+                            margin-bottom: 10px;
+                        }
+                    }
+                
+                    /* Icon alignment */
+                    .search-form i {
+                        font-size: 20px;
+                        color: #666;
+                        padding-right: 5px;
+                    }
+                
+                    /* Form input and select fields */
+                    .search-form input, .search-form select, form i {
+                        margin-bottom: 0 !important;
+                    }
+                
+                    /* Button */
+                    .search-form .btn-primary {
+                        background-color: #1c6dcc;
+                        border-radius: 4px;
+                        padding: 10px 15px;
+                        width: 100%;
+                    }
+                </style>
+                
+                <form action="{% url 'events' %}" method="GET" class="search-form p-2">
+                    <!-- Search icon and search input -->
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" name="search_query" class="form-control" id="searchInput" placeholder="Search Events, Categories, Locations...">
+                
+                    <!-- Location icon and location select -->
+                    <i class="fa fa-location-dot"></i>
+                    <select name="search_location" class="form-select" id="searchLocation">
+                        <option value="">All Locations</option>
+                        {% for location in locations %}
+                            <option value="{{ location }}">{{ location }}</option>
+                        {% endfor %}
+                    </select>
+                
+                    <!-- Submit button -->
+                    <input type="submit" class="btn btn-primary" value="Search">
+                </form>
+                            
             </div>
         </section>
         <section class="container categories" style="margin: 70px auto;">
