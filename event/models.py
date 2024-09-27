@@ -25,8 +25,6 @@ class Event(models.Model):
     location = models.CharField(max_length=255, verbose_name="Where will the event take place")
     description = RichTextField()
     image = models.ImageField(upload_to='Event/%Y/%m/%d/')
-    ticket_name = models.CharField(max_length=255, verbose_name="Ticket Name")
-    ticket_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Ticket Price")
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -46,7 +44,7 @@ class Attendee(models.Model):
     
     
 class Ticket(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="ticket")
     ticket_name = models.CharField(max_length=255)
     ticket_price = models.DecimalField(max_digits=10, decimal_places=2)  # Adjusted to handle currency
     created_at = models.DateTimeField(auto_now_add=True)

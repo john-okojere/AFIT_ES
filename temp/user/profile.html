@@ -1,0 +1,58 @@
+{% extends 'event/base.html' %}
+
+{% block main %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Profile Card -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-left">
+                    <h3 class="card-title">Profile Details</h3>
+                    <br>
+                    <p class="mb-1"><strong>Email:</strong> {{ user.email }}</p>
+                    <p class="mb-1"><strong>Date Joined:</strong> {{ user.date_joined|date:"d M, Y" }}</p>
+                    <p class="mb-1"><strong>Last Updated:</strong> {{ user.update_fields|date:"d M, Y" }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events & Tickets -->
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">My Events & Payments</h3>
+                    <br>
+                    {% if payments %}
+                        <table class="table table-bordered table-striped">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Ticket</th>
+                                    <th>Amount</th>
+                                    <th>Payment Date</th>
+                                    <th>Transaction ID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for payment in payments %}
+                                    <tr>
+                                        <td>{{ payment.ticket.event.title }}</td>
+                                        <td>{{ payment.ticket.ticket_name }}</td>
+                                        <td>${{ payment.amount }}</td>
+                                        <td>{{ payment.payment_date|date:"d M, Y" }}</td>
+                                        <td>{{ payment.transaction_id }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% else %}
+                        <div class="alert alert-info" role="alert">
+                            You have not purchased any tickets yet.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

@@ -7,6 +7,7 @@
     <title>AFIT Event Management System</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/event.css' %}">
+    
     <script src="https://kit.fontawesome.com/7559e3d310.js" crossorigin="anonymous"></script>
 </head>
 <body class="container p-2 bg-light" style="max-width: 1550px;">
@@ -24,13 +25,14 @@
                     <div class="my-2"><a class="text-dark" href="#">Calendar</a></div>
                     <div class="my-2"><a class="text-dark btn btn-outline-primary"  href="{% url 'event-create' %}">Create Event</a></div>
                     <div class="my-2"><a class="btn btn-primary border-dark" href="/accounts/logout/">Log Out</a></div>
+                    <div class="my-2"><a class="text-dark" href="{% url 'user_profile' %}"><i class="fa fa-user"></i></a></div>
                     {% else %}
                     <div><a class="text-dark" href="/">Home</a></div>
+                    <div class="my-2"><a class="text-dark" href="{% url "events" %}">Events</a></div>
                     <div><a class="text-dark" href="#">About</a></div>
                     <div><a class="text-dark" href="#">Services</a></div>
                     <div class="my-2"><a class="btn btn-primary" href="/accounts/login/">Log In</a></div>
                     {% endif %}
-                    <div class="my-2"><a class="text-dark" href="#"><i class="fa fa-user"></i></a></div>
                 </div>
             </div>
        </div>

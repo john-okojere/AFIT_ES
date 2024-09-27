@@ -1,6 +1,24 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from allauth.account.forms import SignupForm
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from event.models import Event, Payment
+
+@login_required
+def user_profile(request):
+    # Get the logged-in user's details
+    user = request.user
+
+    # Fetch events the user has purchased tickets for
+    payments = Payment.objects.filter(ticket__event__category__name="Event").select_related('ticket', 'ticket__event')
+
+    # Render the profile template with user details and past payments/events
+    context = {
+        'user': user,
+        'payments': payments,
+    }
+    return render(request, 'user/profile.html', context)
 
 def custom_signup(request):
     if request.method == 'POST':
